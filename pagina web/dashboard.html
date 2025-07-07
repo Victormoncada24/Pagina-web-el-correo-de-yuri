@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El correo de Yury - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="dashboard.html">El correo de Yury</a>
+        </div>
+        <div class="navbar-links">
+            <a href="employees.html" id="navEmployees">Empleados</a>
+            <a href="reports.html" id="navReports">Reportes</a>
+            <a href="profile.html">Mi Perfil</a>
+            <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="employees.html" class="menu-item" id="sideEmployees">
+                <span>📋</span> Gestionar Empleados
+            </a>
+            <a href="reports.html" class="menu-item" id="sideReports">
+                <span>📊</span> Reportes
+            </a>
+            <a href="profile.html" class="menu-item">
+                <span>👤</span> Mi Perfil
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1 id="welcomeTitle">Bienvenido</h1>
+        <p>Este es el panel de control del sistema de gestión de empleados.</p>
+        
+        <div class="dashboard-cards" id="dashboardCards">
+            <!-- Las tarjetas se generarán dinámicamente -->
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El correo de Yury - Reportes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="dashboard.html">El correo de Yury</a>
+        </div>
+        <div class="navbar-links">
+            <a href="employees.html" id="navEmployees">Empleados</a>
+            <a href="reports.html" id="navReports">Reportes</a>
+            <a href="profile.html">Mi Perfil</a>
+            <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="employees.html" class="menu-item" id="sideEmployees">
+                <span>📋</span> Gestionar Empleados
+            </a>
+            <a href="reports.html" class="menu-item" id="sideReports">
+                <span>📊</span> Reportes
+            </a>
+            <a href="profile.html" class="menu-item">
+                <span>👤</span> Mi Perfil
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Reportes</h1>
+        <div class="reports-grid">
+            <div class="report-card">
+                <h3>Reporte Mensual de Empleados</h3>
+                <p>Genera un reporte detallado de todos los empleados por departamento.</p>
+                <button id="generateMonthlyReport" class="btn-primary">Generar Reporte</button>
+            </div>
+            
+            <div class="report-card">
+                <h3>Reporte de Actualizaciones Pendientes</h3>
+                <p>Lista de empleados que no han actualizado sus datos en los últimos 6 meses.</p>
+                <button id="generateUpdatesReport" class="btn-primary">Generar Reporte</button>
+            </div>
+            
+            <div class="report-card">
+                <h3>Reporte de Cargas Familiares</h3>
+                <p>Resumen de todas las cargas familiares registradas en el sistema.</p>
+                <button id="generateFamilyReport" class="btn-primary">Generar Reporte</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar reportes -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="reportModalTitle">Reporte</h2>
+            <div id="reportContent">
+                <!-- El contenido del reporte se mostrará aquí -->
+            </div>
+            <div class="report-actions">
+                <button id="printReport" class="btn-primary">Imprimir</button>
+                <button id="exportReport" class="btn-secondary">Exportar a PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

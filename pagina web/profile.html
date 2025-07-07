@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El correo de Yury - Mi Perfil</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="dashboard.html">El correo de Yury</a>
+        </div>
+        <div class="navbar-links">
+            <a href="employees.html" id="navEmployees">Empleados</a>
+            <a href="reports.html" id="navReports">Reportes</a>
+            <a href="profile.html">Mi Perfil</a>
+            <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="employees.html" class="menu-item" id="sideEmployees">
+                <span>📋</span> Gestionar Empleados
+            </a>
+            <a href="reports.html" class="menu-item" id="sideReports">
+                <span>📊</span> Reportes
+            </a>
+            <a href="profile.html" class="menu-item">
+                <span>👤</span> Mi Perfil
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Mi Perfil</h1>
+        
+        <div id="profileView" class="profile-view">
+            <div class="profile-section">
+                <h2>Datos Personales</h2>
+                <div class="profile-row">
+                    <span class="profile-label">Nombre:</span>
+                    <span id="viewFirstName"></span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Apellido:</span>
+                    <span id="viewLastName"></span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">RUT:</span>
+                    <span id="viewRut"></span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Email:</span>
+                    <span id="viewEmail"></span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Teléfono:</span>
+                    <span id="viewPhone"></span>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <h2>Contacto de Emergencia</h2>
+                <div class="profile-row">
+                    <span class="profile-label">Nombre:</span>
+                    <span id="viewEmergencyName"></span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Teléfono:</span>
+                    <span id="viewEmergencyPhone"></span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Relación:</span>
+                    <span id="viewEmergencyRelationship"></span>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <h2>Cargas Familiares</h2>
+                <div id="familyMembersList">
+                    <!-- Las cargas familiares se mostrarán aquí -->
+                </div>
+            </div>
+            
+            <button id="editProfileBtn" class="btn-primary">Editar Perfil</button>
+        </div>
+
+        <form id="profileEditForm" class="profile-edit" style="display: none;">
+            <div class="form-section">
+                <h3>Datos Personales</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" id="editFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido:</label>
+                        <input type="text" id="editLastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>RUT:</label>
+                        <input type="text" id="editRut" readonly class="read-only">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Teléfono:</label>
+                    <input type="tel" id="editPhone" required>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>Contacto de Emergencia</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" id="editEmergencyName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono:</label>
+                        <input type="tel" id="editEmergencyPhone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Relación:</label>
+                    <input type="text" id="editEmergencyRelationship" required>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>Cargas Familiares</h3>
+                <div id="editFamilyMembers">
+                    <!-- Las cargas familiares editables se mostrarán aquí -->
+                </div>
+                
+                <div class="add-family-member">
+                    <h4>Agregar Carga Familiar</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input type="text" id="newFamilyName">
+                        </div>
+                        <div class="form-group">
+                            <label>Relación:</label>
+                            <input type="text" id="newFamilyRelationship">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha de Nacimiento:</label>
+                        <input type="date" id="newFamilyBirthDate">
+                    </div>
+                    <button type="button" id="addFamilyMemberBtn" class="btn-secondary">Agregar</button>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Guardar Cambios</button>
+                <button type="button" id="cancelEditProfile" class="btn-secondary">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
